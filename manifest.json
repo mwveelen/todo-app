@@ -1,0 +1,21 @@
+{
+  "name": "Tessa's To Do Lijst",
+  "short_name": "To Do",
+  "description": "Een digitale versie van de papieren to-do lijst.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f9fbf7",
+  "theme_color": "#4a6741",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
