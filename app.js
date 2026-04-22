@@ -75,6 +75,38 @@ function renderAll() {
 
 // Add task logic
 function setupEventListeners() {
+    // Export functionality
+    document.getElementById('export-btn').addEventListener('click', () => {
+        const dataStr = JSON.stringify(tasks);
+        navigator.clipboard.writeText(dataStr).then(() => {
+            alert('Taken zijn gekopieerd naar het klembord! Je kunt dit nu plakken op je andere apparaat via "Importeer".');
+        }).catch(err => {
+            console.error('Fout bij kopiëren: ', err);
+            alert('Er ging iets mis bij het kopiëren.');
+        });
+    });
+
+    // Import functionality
+    document.getElementById('import-btn').addEventListener('click', () => {
+        const input = prompt('Plak hier de geëxporteerde code:');
+        if (input) {
+            try {
+                const importedTasks = JSON.parse(input);
+                // Basic validation
+                if (typeof importedTasks === 'object' && importedTasks !== null) {
+                    tasks = importedTasks;
+                    saveTasks();
+                    renderAll();
+                    alert('Taken succesvol geïmporteerd!');
+                } else {
+                    throw new Error('Ongeldig formaat');
+                }
+            } catch (e) {
+                alert('Oeps! Dat lijkt geen geldige code te zijn. Probeer het opnieuw.');
+            }
+        }
+    });
+
     document.querySelectorAll('.column').forEach(column => {
         const category = column.dataset.category;
         const input = column.querySelector('.add-task input');

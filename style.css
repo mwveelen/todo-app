@@ -161,6 +161,35 @@ header h1 {
     background-color: var(--accent-green);
 }
 
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--medium-green);
+    display: flex;
+    justify-content: center;
+}
+
+.sync-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.sync-controls button {
+    background-color: var(--light-green);
+    border: 1px solid var(--medium-green);
+    color: var(--dark-green);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.sync-controls button:hover {
+    background-color: var(--medium-green);
+    transform: translateY(-2px);
+}
+
 @media (max-width: 800px) {
     .top-row, .bottom-row {
         grid-template-columns: 1fr;
